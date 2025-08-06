@@ -60,4 +60,12 @@ console.log(onboarding05({
     linguagem: 'Java e Typescript',
     email: 'rafaelrocha@gmail.com'
 }));
-// -------- tipos de extensoes (herancas)
+;
+;
+const filha = {
+    nome: 'Ana Cecilia',
+    sobrenome: 'Rocha',
+    idade: 18
+};
+console.log(filha);
+// --------- Tipos de interseções

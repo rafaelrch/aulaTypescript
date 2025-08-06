@@ -117,3 +117,26 @@ console.log(onboarding05(
 ));
 
 // -------- tipos de extensoes (herancas)
+
+interface Mae {
+    nome: string;
+};
+
+interface Pai {
+    sobrenome: string;
+};
+
+interface Filha extends Mae, Pai {
+    idade: number;
+}
+
+const filha: Filha = {
+    nome: 'Ana Cecilia',
+    sobrenome: 'Rocha',
+    idade: 18
+}
+
+console.log(filha);
+
+// --------- Tipos de interseções
+
