@@ -19,7 +19,6 @@ function onboarding02(pessoa) {
         pessoa.funcao +
         '.');
 }
-console.log(onboarding02({ nome: 'Rafael', funcao: 'Full Stack' }));
 function onboarding03(pessoa) {
     return ('Seja bem-vinda ' +
         pessoa.nome +

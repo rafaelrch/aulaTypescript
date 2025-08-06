@@ -33,7 +33,6 @@ function onboarding02(pessoa: Pessoa) {
     );
 }
 
-console.log(onboarding02({nome: 'Rafael', funcao: 'Full Stack'}))
 
 // ----- object type alias
 
