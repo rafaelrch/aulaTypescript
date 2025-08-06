@@ -148,5 +148,28 @@ interface Gato {
     tipo: string;
 }
 
-type Animal = Cachorro & Gato;
+type Animal = {
+    cachorro: Cachorro;
+    gato: Gato;
+}
+
+function raca(animal: Animal) {
+    return (
+        'A raca do cachorro é ' +
+        animal.cachorro.tipo +
+        ' e a raca do gato é ' +
+        animal.gato.tipo
+    );
+}
+
+console.log(raca(
+    {
+        cachorro: {tipo: 'Pitbull'},
+        gato: {tipo:'Siames'}
+    }
+))
+
+// ------- Generic Objects
+
+
 

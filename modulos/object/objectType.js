@@ -68,3 +68,14 @@ const filha = {
     idade: 18
 };
 console.log(filha);
+function raca(animal) {
+    return ('A raca do cachorro é ' +
+        animal.cachorro.tipo +
+        ' e a raca do gato é ' +
+        animal.gato.tipo);
+}
+console.log(raca({
+    cachorro: { tipo: 'Pitbull' },
+    gato: { tipo: 'Siames' }
+}));
+// ------- Generic Objects
