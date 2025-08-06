@@ -97,7 +97,7 @@ const carroTeste: Carro = {
 
 carroTeste.ligar();
 
-// 6
+// 5
 
 type ComponenteVisual = {
     render: () => void;
@@ -116,6 +116,16 @@ const widget: Widget = {
 
 widget.render();
 widget.arrastar();
+
+// 6
+
+function executarAcao( acao: () => void ) {
+    console.log("Iniciando ação...");
+    acao();
+    console.log("Ação finalizada.")
+}
+
+executarAcao(() => console.log('Executando algo importante!'))
 
 // 7
 

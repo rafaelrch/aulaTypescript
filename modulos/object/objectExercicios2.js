@@ -46,6 +46,13 @@ const widget = {
 };
 widget.render();
 widget.arrastar();
+// 6
+function executarAcao(acao) {
+    console.log("Iniciando ação...");
+    acao();
+    console.log("Ação finalizada.");
+}
+executarAcao(() => console.log('Executando algo importante!'));
 function bemVindo(usuario) {
     return ('Seja bem-vindo ' + usuario.nome + '( ' + usuario.email + ' ). ' + 'Seu token é: ' + usuario.token);
 }
