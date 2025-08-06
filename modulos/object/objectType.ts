@@ -140,3 +140,13 @@ console.log(filha);
 
 // --------- Tipos de interseções
 
+interface Cachorro {
+    tipo: string;
+}
+
+interface Gato {
+    tipo: string;
+}
+
+type Animal = Cachorro & Gato;
+

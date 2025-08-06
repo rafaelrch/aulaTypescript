@@ -68,4 +68,3 @@ const filha = {
     idade: 18
 };
 console.log(filha);
-// --------- Tipos de interseções
