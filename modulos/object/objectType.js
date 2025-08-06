@@ -78,4 +78,17 @@ console.log(raca({
     cachorro: { tipo: 'Pitbull' },
     gato: { tipo: 'Siames' }
 }));
-// ------- Generic Objects
+const usuario = {
+    nome: 'Rafael Rocha',
+    email: 'rafaelrocha@gmail.com'
+};
+const admin = {
+    nome: 'Rafael Rocha',
+    email: 'rafaelrocha@gmail.com',
+    admin: true
+};
+function acessarSistema(usuario) {
+    return usuario;
+}
+console.log(acessarSistema(usuario));
+console.log(acessarSistema(admin));
