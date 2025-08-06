@@ -42,3 +42,22 @@ function onboarding04(pessoa) {
         '.');
 }
 console.log(onboarding04({ nome: 'Rafael', funcao: 'Full Stack', linguagem: 'Java e Typescript' }));
+function onboarding05(pessoa) {
+    return ('Seja bem-vinda ' +
+        pessoa.nome +
+        '!' +
+        ' Sua funcao aqui na empresa será ' +
+        pessoa.funcao +
+        ' e utilizará a linguagem ' +
+        pessoa.linguagem +
+        '.' +
+        ' Seu email será ' +
+        pessoa.email);
+}
+console.log(onboarding05({
+    nome: 'Rafael',
+    funcao: 'Full Stack',
+    linguagem: 'Java e Typescript',
+    email: 'rafaelrocha@gmail.com'
+}));
+// -------- tipos de extensoes (herancas)
