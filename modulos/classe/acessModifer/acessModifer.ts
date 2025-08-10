@@ -42,10 +42,34 @@ class Estudante02 {
 const estudante02 = new Estudante02(4123423, 'Rafael Rocha', 21);
 console.log(estudante02.retornarDados());
 
-// 3 Private
 
 // 4 Protected
 
-// 5 Readonly
+class Estudante03 {
+    codigoEstudante: number;
+    protected nomeEstudante: string;
 
+    constructor(codigoEstudante: number, nomeEstudante: string) {
+        this.codigoEstudante = codigoEstudante;
+        this.nomeEstudante = nomeEstudante;
+    }
+}
+
+class Pessoa extends Estudante03{
+    private curso: string;
+
+    constructor(codigoEstudante: number, nomeEstudante: string, curso: string) {
+        super(codigoEstudante, nomeEstudante);
+        this.curso = curso;
+    }
+
+    retornarDadosAluno() {
+        return `Codigo do estudante: ${this.codigoEstudante}.
+        Nome do estudante: ${this.nomeEstudante}.
+        Curso do estudante: ${this.curso}.`;
+    }
+}
+
+const aluno = new Pessoa(333, 'Rafael Rocha Almeida', 'Engenharia de software');
+console.log(aluno.retornarDadosAluno())
 
