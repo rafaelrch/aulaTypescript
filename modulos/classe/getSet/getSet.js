@@ -45,6 +45,9 @@ class Estudante_02 {
     get cursos() {
         return this.curso;
     }
+    set cursos(setCurso) {
+        this.curso = setCurso;
+    }
 }
 const estudante_02 = new Estudante_02('Rocha Rafael', 8, 'Analise e desenvolvimento de sistemas');
 console.log(estudante_02);
