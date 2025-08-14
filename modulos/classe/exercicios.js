@@ -65,4 +65,3 @@ class Gerente extends Funcionario {
 }
 const gerente = new Gerente('Mateus', 'RH', 2900);
 console.log('Dados do atual do gerente: ', gerente.exibirDadosGerente());
-// 3
