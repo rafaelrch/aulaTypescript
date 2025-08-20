@@ -17,6 +17,7 @@ function mostrarMenu(){
 
     console.log("1 - Ver Tarefas");
     console.log("2 - Adicionar Tarefa");
+    console.log("3 - Editar Tarefa");
     console.log("0 - Sair");
     
     rl.question("O que vc deseja fazer? ", (resposta) => {
@@ -35,6 +36,10 @@ function tratarOpcao(opcao: number){
         
         case 2:
             adicionar();
+        break;
+
+        case 3:
+            editar();
         break;
 
         case 0:
@@ -73,7 +78,21 @@ function adicionar(){
         }
         mostrarMenu()
     });
+}
 
+function editar(){
+    rl.question("Qual tarefa vc quer editar? ", (resposta) => {
+        const numTask = Number(resposta)
+        if(numTask <= 0){
+            console.log("Invalido")
+        }else{
+            rl.question("Digite a alteracao: ", (resposta2) => {
+                const taskEditada = resposta2;
+                todoTarefas[numTask] = {nome: taskEditada, status: false};
+            })
+
+        }
+    });
 }
 
 mostrarMenu()
