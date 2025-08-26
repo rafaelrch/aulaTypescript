@@ -75,14 +75,15 @@ function tratarOpc(opc) {
     }
 }
 function exibirTarefas() {
-    if (todoTarefas.length <= 0) {
+    if (todoTarefas.length === 0) {
         console.log("Nenhuma tarefa adicionada");
         return exibirMenu();
     }
     else {
-        console.log(todoTarefas.forEach((t, i) => {
+        console.log("TAREFAS");
+        todoTarefas.forEach((t, i) => {
             console.log(`${i + 1}. ${t.nome}`);
-        }));
+        });
     }
     exibirMenu();
 }
