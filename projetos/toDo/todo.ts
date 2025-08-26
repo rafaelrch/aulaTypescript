@@ -53,7 +53,7 @@ function tratarOpcao(opcao: number){
         break;
 
         default:
-            console.log("Opcao invalidae")
+            console.log("Opcao invalida")
             mostrarMenu();
     }
 } 

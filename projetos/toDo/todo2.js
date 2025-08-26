@@ -39,22 +39,22 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 let todoTarefas = [];
-function mostrarMenu() {
-    console.log("---------ToDo---------");
-    console.log("1 - Ver Tarefas");
-    console.log("2 - Adicionar Tarefa");
-    console.log("3 - Editar Tarefa");
-    console.log("4 - Excluir Tarefa");
+function exibirMenu() {
+    console.log("MENU TO-DO");
+    console.log("1 - Ver tarefas");
+    console.log("2 - Adicionar");
+    console.log("3 - Editar");
+    console.log("4 - Excluir");
     console.log("0 - Sair");
-    rl.question("O que vc deseja fazer? ", (resposta) => {
-        const opcao = Number(resposta);
-        tratarOpcao(opcao);
+    rl.question("Qual opção você deseja?", (resposta) => {
+        const opc = Number(resposta);
+        tratarOpc(opc);
     });
 }
-function tratarOpcao(opcao) {
-    switch (opcao) {
+function tratarOpc(opc) {
+    switch (opc) {
         case 1:
-            listarTarefas();
+            exibirTarefas();
             break;
         case 2:
             adicionar();
@@ -71,76 +71,82 @@ function tratarOpcao(opcao) {
             break;
         default:
             console.log("Opcao invalida");
-            mostrarMenu();
+            exibirMenu();
     }
 }
-function listarTarefas() {
-    if (todoTarefas.length === 0) {
-        console.log("Nnehuma Tarefa adicionada!");
+function exibirTarefas() {
+    if (todoTarefas.length <= 0) {
+        console.log("Nenhuma tarefa adicionada");
+        return exibirMenu();
     }
     else {
-        console.log("\n Tarefas: ");
-        todoTarefas.forEach((t, i) => {
-            console.log(`${i + 1} - ${t.nome}`);
-        });
+        console.log(todoTarefas.forEach((t, i) => {
+            console.log(`${i + 1}. ${t.nome}`);
+        }));
     }
-    mostrarMenu();
+    exibirMenu();
 }
 function adicionar() {
-    rl.question("Digite o nome da tarefa: ", (resposta) => {
-        const task = resposta;
-        if (!task) {
-            console.log("Tarefa invalida");
+    rl.question("Escreva o nome da tarefa: ", (resposta) => {
+        const nomeTarefa = resposta;
+        if (!nomeTarefa) {
+            console.log("Tarefa Inválida");
         }
         else {
-            todoTarefas.push({ nome: task, status: false });
-            console.log("Tarefa adicioanda com sucesso!");
+            todoTarefas.push({ nome: nomeTarefa });
+            console.log("Tarefa adicionada com sucesso!");
         }
-        mostrarMenu();
+        return exibirMenu();
     });
 }
 function editar() {
     if (todoTarefas.length === 0) {
-        return mostrarMenu();
+        exibirMenu();
     }
-    console.log("\nTarefas");
-    todoTarefas.forEach((t, i) => console.log(`${i + 1} - ${t.nome}`));
-    rl.question("Qual tarefa vc quer editar? ", (resposta) => {
-        const numTask = Number(resposta);
-        const idx = numTask - 1;
-        if (!Number.isInteger(numTask) || numTask <= 0 || numTask >= todoTarefas.length) {
-            console.log("Invalido");
-            return mostrarMenu();
+    console.log("--------TAREFAS--------");
+    todoTarefas.forEach((t, i) => {
+        console.log(`${i + 1}. ${t.nome}`);
+    });
+    rl.question("Qual tarefa voce quer editar: ", (resposta) => {
+        const opcEditar = Number(resposta);
+        const idx = opcEditar - 1;
+        if (opcEditar > todoTarefas.length || opcEditar <= 0) {
+            console.log("Opção inválida");
+            exibirMenu();
         }
-        rl.question("Digite a alteracao(nome): ", (resposta2) => {
+        rl.question("Digite a alteração: ", (resposta2) => {
             if (!resposta2) {
-                console.log("Tarefa Invalida");
-                return mostrarMenu();
+                console.log("Tarefa Inválida");
+                return exibirMenu();
             }
             else {
-                const atual = todoTarefas[idx];
-                todoTarefas[idx] = { ...atual, nome: resposta2 };
+                todoTarefas[idx] = { nome: resposta2 };
             }
-            console.log("Tarefa editada com sucesso!");
-            mostrarMenu();
+            console.log("Alteração feita com sucesso!");
+            exibirMenu();
         });
     });
 }
 function excluir() {
-    console.log("--------Todo---------");
-    todoTarefas.forEach((t, i) => console.log(`${i + 1} - ${t.nome}`));
-    rl.question("Qual tarefa vc quer excluir?", (resposta) => {
-        const numExcluir = Number(resposta);
-        const idx = numExcluir - 1;
-        if (numExcluir <= 0 || numExcluir > todoTarefas.length) {
-            console.log("Escolha inválida");
-            return mostrarMenu();
+    if (todoTarefas.length === 0) {
+        exibirMenu();
+    }
+    console.log("--------TAREFAS--------");
+    todoTarefas.forEach((t, i) => {
+        console.log(`${i + 1}. ${t.nome}`);
+    });
+    rl.question("Qual tarefa vc quer excluir: ", (resposta) => {
+        const opcExcluir = Number(resposta);
+        const idx = opcExcluir - 1;
+        if (opcExcluir <= 0 || opcExcluir > todoTarefas.length) {
+            console.log("Inválido");
+            return exibirMenu();
         }
         else {
             todoTarefas.splice(idx, 1);
-            console.log("Tarefa removida com sucesso");
-            return mostrarMenu();
         }
+        console.log("Tarefa excluida com sucesso!");
+        exibirMenu();
     });
 }
-mostrarMenu();
+exibirMenu();
